@@ -11,26 +11,31 @@ import {
 import { MyPokemonListContainer } from './style'
 
 
-function MyPokemonListPage(props) {
+function MyPokemonListPage({
+  myPokemonList,
+  isLoading,
+  fetchMyPokemons,
+  releasePokemon
+}) {
 
   useEffect(() => {
     if (!localStorage.getItem('myPokemonList')) {
       localStorage.setItem('myPokemonList', JSON.stringify([]));
     } 
-    props.fetchMyPokemons()
-  }, [props.fetchMyPokemons])
+    fetchMyPokemons()
+  }, [fetchMyPokemons])
 
   return (
     <MyPokemonListContainer>
       {
-        props.isLoading && <div>Loading...</div>
+        isLoading && <div>Loading...</div>
       }
       <h1>My Pokedex</h1>
       <div className="container">
         <div className="list">
         {
-            props.myPokemonList?.map(el => {
-             return <PokemonCard pokemon={el} onDelete={() => props.releasePokemon(el.nickname)} />
+            myPokemonList?.map((el, idx) => {
+             return <PokemonCard pokemon={el} onDelete={() => releasePokemon(el.nickname)} key={idx} />
             })
           }
         </div>
