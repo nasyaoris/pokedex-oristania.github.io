@@ -21,7 +21,6 @@ export const fetchMyPokemons = () => {
   };
 
 
-
   export const releasePokemon = name => {
     return dispatch => {
       try {
