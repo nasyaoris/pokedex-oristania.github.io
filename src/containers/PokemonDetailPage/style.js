@@ -5,7 +5,7 @@ display: flex;
 position: relative; 
 justify-content: center;
 font-family: 'Jura', sans-serif;
-margin-top: 10px;
+margin-top: 30px;
 
 .detail-wrapper {
     display: flex;
@@ -33,6 +33,7 @@ margin-top: 10px;
     display: flex;
     flex-direction: column;
     width: 100%;
+    margin-top: 10px;
 }
 
 .poke-move {

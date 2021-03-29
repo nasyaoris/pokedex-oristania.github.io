@@ -1,5 +1,6 @@
 import React from 'react';
 import { HeaderContainer } from './style'
+import { Tooltip } from 'antd';
 import { Link } from 'react-router-dom'
 import pokeball from '../../assets/img/pokeball.svg'
 import star from '../../assets/img/star.svg'
@@ -23,14 +24,18 @@ function Header(props) {
             </div>
             <div className="buttons">
                 <Link to="/">
-                    <button  data-toggle="tooltip" data-placement="bottom" title="Pokedex">                    
-                        <img src={pokeball} alt="pokeball" className="button" onClick={routeChange} />
-                    </button>
+                    <Tooltip title="Pokedexes">
+                        <button>                    
+                            <img src={pokeball} alt="pokeball" className="button" onClick={routeChange} />
+                        </button>
+                    </Tooltip>
                 </Link>
                 <Link to="/pokedex/mypokedex">
-                <button  data-toggle="tooltip" data-placement="bottom" title="My Pokedex">                    
-                        <img src={star} alt="star" className="button" onClick={routeChangeMyPokemon} />
-                </button>
+                    <Tooltip title="My Pokedex">
+                        <button>                    
+                            <img src={star} alt="star" className="button" onClick={routeChangeMyPokemon} />
+                        </button>
+                    </Tooltip>
                 </Link>
             </div>
         </HeaderContainer>

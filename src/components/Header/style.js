@@ -55,15 +55,18 @@ button {
 
 @media (max-width: 769px) {
 .button {
-    width: 45px;
+    width: 30px;
 }
   
 }
 
 @media (max-width: 429px) {
     .logo {
-        width: 150px;
+        width: 125px;
     }
+    .button {
+    width: 30px;
+}
 }
 
 @media (max-width: 385px) {

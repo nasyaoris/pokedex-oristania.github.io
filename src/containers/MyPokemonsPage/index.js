@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types"
 
@@ -15,19 +15,33 @@ function MyPokemonListPage(props) {
 
   useEffect(() => {
     props.fetchMyPokemons()
-    console.info(props.myPokemonList)
-  }, [])
+  }, [props])
+
   return (
     <MyPokemonListContainer>
+      {
+        props.isLoading && <div>Loading...</div>
+      }
+      <h1>My Pokedex</h1>
       <div className="container">
-          {
+        <div className="list">
+        {
             props.myPokemonList?.map(el => {
-             return <PokemonCard pokemon={el} onDelete={() => props.releasePokemon(el.data.id)} />
+             return <PokemonCard pokemon={el} onDelete={() => props.releasePokemon(el.nickname)} />
             })
           }
+        </div>
       </div>
     </MyPokemonListContainer>
   )
+}
+
+MyPokemonListPage.propTypes = {
+  myPokemonList: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  isLoading: PropTypes.bool,
+  fetchMyPokemons: PropTypes.func,
+  releasePokemon: PropTypes.func
+
 }
 
 function mapStateToProps(state) {

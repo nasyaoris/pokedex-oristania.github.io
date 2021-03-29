@@ -22,10 +22,10 @@ export const fetchMyPokemons = () => {
 
 
 
-  export const releasePokemon = id => {
+  export const releasePokemon = name => {
     return dispatch => {
       try {
-        return dispatch({ type: RELEASE_POKEMON, payload: id });
+        return dispatch({ type: RELEASE_POKEMON, payload: name });
       } catch (err) {
         console.log(err);
       };

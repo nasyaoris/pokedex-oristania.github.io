@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const PokemonListContainer = styled.div`
+margin-top: 30px;
 .container {
     display: flex;
     flex-direction: row;

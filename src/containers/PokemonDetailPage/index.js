@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import PropTypes from "prop-types"
 import { useQuery } from '@apollo/client';
 import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
@@ -56,7 +57,7 @@ function ModalCatchSuccess(props) {
   return (
     <Modal open={open} handleClose={handleClose} maxWidth="xs" fullWidth  preventClose={false}>
       <ModalSuccessContainer>
-        <p>You Caught {name} !</p>
+        <p>You caught {name.toUpperCase()} !</p>
         <label>Enter Nickname: </label>
         <input type="text" className="input-group input" onChange={(event) => handleChange(event.target.value)} defaultValue="" value={nickname}/>
         {
@@ -71,6 +72,13 @@ function ModalCatchSuccess(props) {
   )
 }
 
+ModalCatchSuccess.propTypes = {
+  data: PropTypes.oneOfType([PropTypes.object, PropTypes.array]), 
+  onCatch: PropTypes.func, 
+  open: PropTypes.bool, 
+  handleClose: PropTypes.func 
+}
+
 function ModalCatchFailed(props) {
   return (
     <Modal open={props.open} handleClose={props.handleClose} maxWidth="xs" fullWidth  preventClose={false}>
@@ -80,6 +88,11 @@ function ModalCatchFailed(props) {
     </Modal>
 
   )
+}
+
+ModalCatchFailed.propTypes = {
+  open: PropTypes.bool, 
+  handleClose: PropTypes.func 
 }
 
 function PokemonDetailPage(props) {
@@ -121,20 +134,20 @@ function PokemonDetailPage(props) {
     return(
         <PokemonDetailContainer>
             <div className="back">
-              <Button label="< Back" onClick={() => routeChange()}/>
+              <Button label="< Back" onClick={() => routeChange()} size="12px"/>
             </div>
             <div className="detail-wrapper">
                 <div className="poke-img">
                     <img src={data.pokemon.sprites.front_default} alt="pokeImg" />
                 </div>
                 <div className="poke-name">
-                    <h1>{data.pokemon.name.toUpperCase()}</h1>
+                    <h2>{data.pokemon.name.toUpperCase()}</h2>
                 </div>
                 <div className="catch">
-                  <Button label="Catch!" onClick={() => handleCatch()} size="25px" />
+                  <Button label="Catch!" onClick={() => handleCatch()} size="20px" />
                 </div>
                 <div className="poke-types">
-                    <h3>Types</h3>
+                    <h4>Types</h4>
                     <div className="types">
                     {
                         data.pokemon.types.map(el => (
@@ -144,7 +157,7 @@ function PokemonDetailPage(props) {
                     </div>
                 </div>
                 <div className="poke-move">
-                    <h3>Move</h3>
+                    <h4>Move</h4>
                     <div className="move">
                     {
                         data.pokemon.moves.map(el => (
@@ -163,6 +176,10 @@ function PokemonDetailPage(props) {
             <ModalCatchFailed open={openFailed} handleClose={() => handleClose('failed')} />
         </PokemonDetailContainer>
     )
+}
+
+PokemonDetailPage.propTypes = {
+  catchPokemon: PropTypes.func
 }
 
 const mapDispatchToProps = (dispatch) => ({
