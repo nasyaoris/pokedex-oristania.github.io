@@ -1,9 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import logo from "../../logo.svg";
 import { ReactStarterContainer } from "./style";
 
-class App extends Component {
-  render() {
+function App() {
     return (
       <ReactStarterContainer>
         <div className="App">
@@ -24,7 +23,6 @@ class App extends Component {
         </div>
       </ReactStarterContainer>
     );
-  }
 }
 
 export default App;

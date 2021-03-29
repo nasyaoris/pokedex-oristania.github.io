@@ -5,6 +5,18 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: lightgoldenrodyellow;
+  padding: 20px;
+}
+
+@font-face{
+  font-family: "Pokemon";
+  src: url('./assets/fonts/Pokemon\ Hollow.ttf')
+}
+
+@font-face{
+  font-family: "Pokemon Solid";
+  src: url('./assets/fonts/Pokemon\ Solid.ttf')
 }
 
 code {
