@@ -55,9 +55,9 @@ function PokemonListPage(props) {
             setCurrentPage={(int) => setCurrentPage(int)}
           >
           {
-            data.pokemons.results.map(el => {
+            data.pokemons.results.map((el, idx) => {
             let color = randomColor()
-             return <PokemonCard pokemon={el} onClick={() => routeChange(el.name)} color={color} />
+             return <PokemonCard pokemon={el} onClick={() => routeChange(el.name)} color={color} key={idx} />
             })
           }
           </Pagination>

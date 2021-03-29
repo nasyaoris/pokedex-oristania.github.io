@@ -14,8 +14,11 @@ import { MyPokemonListContainer } from './style'
 function MyPokemonListPage(props) {
 
   useEffect(() => {
+    if (!localStorage.getItem('myPokemonList')) {
+      localStorage.setItem('myPokemonList', JSON.stringify([]));
+    } 
     props.fetchMyPokemons()
-  }, [props])
+  }, [props.fetchMyPokemons])
 
   return (
     <MyPokemonListContainer>

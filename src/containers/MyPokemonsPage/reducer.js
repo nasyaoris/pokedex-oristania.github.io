@@ -23,7 +23,7 @@ export const myPokemonReducer = (state = initialState, action) => {
         case FETCH_MY_POKEMON:
             return { ...state, myPokemonList: action.payload, isLoading: false };
         case SET_POKEMON_LIST:
-            localStorage.setItem('myPokemonList', []);
+            localStorage.setItem('myPokemonList', JSON.stringify([]));
             return { ...state, myPokemonList: [], isLoading: false };
         case RELEASE_POKEMON:
             let newArr = state.myPokemonList?.filter(e => e.nickname !== action.payload);

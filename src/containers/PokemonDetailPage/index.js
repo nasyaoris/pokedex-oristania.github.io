@@ -40,6 +40,10 @@ function ModalCatchSuccess(props) {
       nickname: nickname,
       data
     }
+    if (!localStorage.getItem('myPokemonList')) {
+      localStorage.setItem('myPokemonList', JSON.stringify([]));
+    } 
+
     let checkName = JSON.parse(localStorage.getItem('myPokemonList'))?.filter(el => nickname === el.nickname)
     if (checkName === undefined) {
       onCatch(obj)
@@ -150,8 +154,8 @@ function PokemonDetailPage(props) {
                     <h4>Types</h4>
                     <div className="types">
                     {
-                        data.pokemon.types.map(el => (
-                            <Card text={el.type.name} />
+                        data.pokemon.types.map((el,idx) => (
+                            <Card text={el.type.name} key={idx} />
                         ))
                     }
                     </div>
@@ -160,8 +164,8 @@ function PokemonDetailPage(props) {
                     <h4>Move</h4>
                     <div className="move">
                     {
-                        data.pokemon.moves.map(el => (
-                            <Card text={el.move.name} />
+                        data.pokemon.moves.map((el,idx) => (
+                            <Card text={el.move.name} key={idx} />
                         ))
                     }
                     </div>
