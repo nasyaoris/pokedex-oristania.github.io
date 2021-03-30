@@ -58,8 +58,7 @@ function ModalCatchSuccess(props) {
       Swal.fire({
         icon: 'success',
         text: `You caught ${name}! Click the Star at the header to check your podexes`,
-        showConfirmButton: false,
-        timer: 4000
+        showConfirmButton: true,
       })
     }
     setNickName("")
