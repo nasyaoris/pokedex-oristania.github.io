@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 
 import prevButton from "../../../../assets/img/prevButton.png";
 import nextButton from "../../../../assets/img/nextButton.png";
-// import Loading from "../../../components/Loading";
 import EmptyCard from "../../../../components/EmptyCard";
 import { PaginationContainer } from "./style";
 

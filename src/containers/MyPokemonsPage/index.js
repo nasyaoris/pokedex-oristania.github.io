@@ -18,6 +18,11 @@ function MyPokemonListPage({
   releasePokemon
 }) {
 
+  const routeChange = (id) => {
+    let path = `/detail/1/${id}`;
+    window.location.href = path
+  }
+
   useEffect(() => {
     if (!localStorage.getItem('myPokemonList')) {
       localStorage.setItem('myPokemonList', JSON.stringify([]));
@@ -35,7 +40,7 @@ function MyPokemonListPage({
         <div className="list">
         {
             myPokemonList?.map((el, idx) => {
-             return <PokemonCard pokemon={el} onDelete={() => releasePokemon(el.nickname)} key={idx} />
+             return <PokemonCard pokemon={el} onDelete={() => releasePokemon(el.nickname)} onClick={() => routeChange(el.data.name)} key={idx} />
             })
           }
         </div>

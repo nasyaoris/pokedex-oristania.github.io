@@ -8,7 +8,8 @@ import {
 
 function PokemonCard({
     pokemon,
-    onDelete
+    onDelete,
+    onClick,
 }) {
     return (
         <PokemonCardContainer>
@@ -17,7 +18,7 @@ function PokemonCard({
                         <Button shape="circle" type='danger' onClick={onDelete} icon={<DeleteOutlined twoToneColor="red" />} />
                     </Tooltip>
             </div>
-            <div className="card-container">
+            <div className="card-container" onClick={onClick}>
                 <div className="img-container">
                     <img src={pokemon?.data.sprites.front_default} className="img" alt="pokemon" />
                 </div>
