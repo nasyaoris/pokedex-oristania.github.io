@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from "prop-types"
+import Swal from 'sweetalert2' 
 import { useQuery } from '@apollo/client';
 import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
@@ -54,6 +55,12 @@ function ModalCatchSuccess(props) {
     else {
       onCatch(obj)
       handleClose()
+      Swal.fire({
+        icon: 'success',
+        text: `You caught ${name}! Click the Star at the header to check your podexes`,
+        showConfirmButton: false,
+        timer: 4000
+      })
     }
     setNickName("")
   }

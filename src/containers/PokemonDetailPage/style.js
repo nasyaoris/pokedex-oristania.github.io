@@ -29,6 +29,10 @@ margin-top: 30px;
     }
 }
 
+.swal-text {
+    font-family: 'Jura', sans-serif;
+}
+
 .poke-types {
     display: flex;
     flex-direction: column;

@@ -13,6 +13,8 @@
     "connected-react-router": "^6.9.1",
     "graphql": "^15.5.0",
     "history": "^5.0.0",
+    "install": "^0.13.0",
+    "npm": "^7.7.6",
     "prop-types": "^15.7.2",
     "randomcolor": "^0.6.2",
     "react": "^17.0.2",
@@ -24,6 +26,7 @@
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.3.0",
     "styled-components": "^5.2.1",
+    "sweetalert2": "^10.15.7",
     "web-vitals": "^1.0.1"
   },
   "scripts": {

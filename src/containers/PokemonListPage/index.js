@@ -1,30 +1,13 @@
 import React, { useState } from "react";
-import { gql, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
+import { useParams } from "react-router";
 import randomColor from "randomcolor";
 
 import PokemonCard from './components/PokemonCard'
 import Pagination from './components/Pagination'
-
 import { PokemonListContainer } from './style'
-import { useParams } from "react-router";
+import { GET_POKEMONS } from './actions'
 
-const GET_POKEMONS = gql`
-  query pokemons($limit: Int, $offset: Int) {
-    pokemons(limit: $limit, offset: $offset) {
-      count
-      next
-      previous
-      status
-      message
-      results {
-        id
-        url
-        name
-        image
-      }
-    }
-  }
-`;
 
 function PokemonListPage(props) {
   const { page } = useParams()

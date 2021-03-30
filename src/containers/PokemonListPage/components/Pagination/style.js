@@ -57,7 +57,17 @@ export const PaginationContainer = styled.div`
     cursor: pointer;
   }
 
-  @media (max-width: 429px) {
+
+
+@media (max-width: 769px) {
+  .list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: 10px;
+  }
+}
+
+@media (max-width: 429px) {
 .list {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -65,4 +75,5 @@ export const PaginationContainer = styled.div`
   }
 
 }
+
 `;

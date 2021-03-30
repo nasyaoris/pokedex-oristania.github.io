@@ -1,4 +1,3 @@
-// import ReactStarter from "../../components/ReactStarter";
 import NotFoundPage from "../../components/NotFoundPage";
 import PokemonListPage from "../PokemonListPage"
 import PokemonDetailPage from "../PokemonDetailPage"
