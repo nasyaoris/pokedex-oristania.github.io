@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { PokemonCardContainer } from './style'
 
 function PokemonCard({
@@ -6,6 +6,19 @@ function PokemonCard({
     onClick,
     color,
 }){
+
+    const [total, setTotal] = useState(0)
+
+    useEffect(() => {
+        if (!localStorage.getItem('myPokemonList')) {
+            localStorage.setItem('myPokemonList', JSON.stringify([]));
+          } 
+      
+          let checkName = JSON.parse(localStorage.getItem('myPokemonList'))?.filter(el => pokemon?.name === el.data.name)
+          setTotal(checkName.length)
+    }, [setTotal, pokemon.name])
+
+
     return (
         <PokemonCardContainer color={color}>
             <div className="card-container" onClick={() => onClick(pokemon?.id)}>
@@ -15,6 +28,7 @@ function PokemonCard({
                 <div className="detail">
                     {pokemon?.name}
                 </div>
+                <p>{total}</p>
             </div>
         </PokemonCardContainer>
     )
